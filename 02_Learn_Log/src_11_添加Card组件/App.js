@@ -1,9 +1,8 @@
 import Logs from './components/Logs'
-import LogsForm from './components/LogsForm'
+import Card from './UI/Card/Card'
 
 const App = () => {
-    return <div className='app'>
-        <LogsForm/>
+    return <div>
         <Logs></Logs>
     </div>
 }
