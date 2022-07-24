@@ -2,10 +2,19 @@ import React, { useState } from 'react'
 import Card from '../UI/Card/Card'
 import '../css/LogsForm.css'
 
-export default function LogsForm(props) {
+export default function LogsForm() {
     /* 
         当表单项发生变化时，获取用户输入的内容
     */
+    // let inputMonth = ''
+    // let inputDay = ''
+    // let inputDesc = ''
+    // let inputTime = ''
+
+    // const [inputMonth, setInputMonth] = useState('')
+    // const [inputDay, setinputDay] = useState('')
+    // const [inputDesc, setinputDesc] = useState('')
+    // const [inputTime, setinputTime] = useState('')
 
     // 将表单数据统一到一个state
     const [formData, setFormData] = useState({
@@ -58,10 +67,9 @@ export default function LogsForm(props) {
             day: formData.inputDay,
             title: formData.inputDesc,
             time: formData.inputTime,
+            id: 1
         }
         console.log(newLog);
-        // 当要添加新的日志时，调用父组件传递的函数
-        props.saveLog(newLog)
         /* 
             清空表单中的旧数据
         */
@@ -71,7 +79,6 @@ export default function LogsForm(props) {
             inputDesc: '',
             inputTime: ''
         })
-        
     }
 
     return (
