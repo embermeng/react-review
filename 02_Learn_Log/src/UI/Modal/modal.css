@@ -1,0 +1,28 @@
+.modal{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 200px;
+    padding: 10px 0;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.modalText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+.modalBtn {
+    display: flex;
+    flex: auto;
+    justify-content: flex-end;
+}
+.modalBtn button {
+    width: 80px;
+    margin: 0 10px;
+    border: none;
+}
