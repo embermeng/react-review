@@ -1,7 +1,10 @@
 import React from 'react'
+import Meals from './components/Meals/Meals'
 
 export default function App() {
     return (
-        <div style={{ width: '750rem',height: '200px', backgroundColor: '#bfa' }}></div>
+        <div>
+            <Meals/>
+        </div>
     )
 }
