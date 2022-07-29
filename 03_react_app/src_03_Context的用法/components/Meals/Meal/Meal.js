@@ -14,7 +14,7 @@ export default function Meal(props) {
                 <p className={classes.desc}>{props.meal.desc}</p>
                 <div className={classes.priceBox}>
                     <span className={classes.price}>{props.meal.price}</span>
-                    <Counter meal={props.meal}></Counter>
+                    <Counter amount={1}></Counter>
                 </div>
             </div>
         </div>

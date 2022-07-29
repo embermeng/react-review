@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Meals from './components/Meals/Meals'
 import CartContext from './store/cartContext'
 import FilterMeals from './components/FilterMeals/FilterMeals'
-import Cart from './components/Cart/Cart'
 
 const MEALS_DATA = [
     {
@@ -104,7 +103,6 @@ export default function App() {
             <div>
                 <FilterMeals onFilter={filterMeals} />
                 <Meals meals={mealsData} />
-                <Cart />
             </div>
         </CartContext.Provider>
 

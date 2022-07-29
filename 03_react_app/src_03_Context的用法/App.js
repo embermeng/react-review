@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Meals from './components/Meals/Meals'
-import CartContext from './store/cartContext'
-import FilterMeals from './components/FilterMeals/FilterMeals'
-import Cart from './components/Cart/Cart'
+import Test from './components/Test'
+import Test2 from './components/Test2'
+import TestContext from './store/testContext'
 
 const MEALS_DATA = [
     {
@@ -58,7 +58,7 @@ export default function App() {
         totalPrice: 0, // 总价
     })
     // 向购物车中添加商品
-    const addItem = (meal) => {
+    const addMeal = (meal) => {
         // meal 要添加的商品
         const newCart = { ...cart }
         // 判断购物车中是否存在该商品
@@ -77,8 +77,7 @@ export default function App() {
         setCart(newCart)
     }
 
-    // 减少商品
-    const removeItem = (meal) => {
+    const subMeal = (meal) => {
         const newCart = { ...cart }
         // 减少商品数量
         meal.amount -= 1
@@ -91,22 +90,20 @@ export default function App() {
 
         setCart(newCart)
     }
-
-    // 过滤meals的函数
-    const filterMeals = (keyword) => {
-        const newMeals = MEALS_DATA.filter((item) => {
-            return item.title.indexOf(keyword) !== -1
-        })
-        setMealsData(newMeals)
-    }
     return (
-        <CartContext.Provider value={{ ...cart, addItem, removeItem }}>
+        /* 
+            TestContext.Provider: 数据的生产者，传入value属性用来指定Context中的数据，里面的所有组件都能拿到数据
+            当我们通过Context访问数据时，组件会读取离它最近的Provider中点数据
+            如果没有Provider，则读取Context中的默认数据
+        */
+        <TestContext.Provider value={{ name: '猪八戒', age: 30 }}>
             <div>
-                <FilterMeals onFilter={filterMeals} />
+                {/* <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                    <Test />
+                    <Test2 />
+                </div> */}
                 <Meals meals={mealsData} />
-                <Cart />
             </div>
-        </CartContext.Provider>
-
+        </TestContext.Provider >
     )
 }
