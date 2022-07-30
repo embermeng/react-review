@@ -1,0 +1,19 @@
+.confirmOuter {
+    z-index: 10006;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.confirm {
+    width: 700rem;
+    height: 300rem;
+    background-color: #fff;
+    border-radius: 20rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.confirmText {
+    font-size: 40rem;
+}

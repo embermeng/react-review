@@ -1,0 +1,46 @@
+.checkout {
+    position: fixed;
+    z-index: 10003;
+    height: 100vh;
+    width: 100vw;
+    background-color: #eee;
+    padding: 20rem;
+}
+
+.close {
+    color: #000;
+    font-size: 50rem;
+
+}
+
+.mealsInfo {
+    background-color: #fff;
+    border-radius: 20rem;
+    padding: 0 40rem;
+}
+
+.header {
+    border-bottom: 1px solid #f2f2f2;
+    height: 80rem;
+    display: flex;
+    align-items: center;
+    font-size: 18rem;
+}
+
+.meals {
+    max-height: 900rem;
+    overflow: auto;
+}
+
+.footer {
+    height: 120rem;
+    border-top: 1px dashed #f2f2f2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+}
+
+.price::before {
+    content: '￥';
+}
