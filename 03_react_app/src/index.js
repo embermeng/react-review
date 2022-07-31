@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './index.css'
 
 // 设置移动端的适配-rem
 document.documentElement.style.fontSize = 100/750 + 'vw' // 设置视口宽度为750rem

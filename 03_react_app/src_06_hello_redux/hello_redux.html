@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello_redux</title>
+    <script src="https://unpkg.com/redux@4.2.0/dist/redux.js"></script>
+</head>
+
+<body>
+    <button id="sub">减少</button>
+    <span id="count">1</span>
+    <button id="add">增加</button>
+    <button id="addN">加n</button>
+</body>
+<script>
+    const subBtn = document.getElementById("sub")
+    const addBtn = document.getElementById("add")
+    const addN = document.getElementById("addN")
+    const countSpan = document.getElementById("count")
+
+    /* 
+        网页中使用redux：
+            1. 引入redux
+            2. 创建reducer整合函数
+            3. 通过reducer对象创建store仓库
+            4. 对store中的state进行订阅
+            5. 通过dispatch派发state的操作指令
+    */
+    // 2. 创建reducer整合函数
+    function reducer(state, action) {
+        /* 
+            state: 表示当前state（改之前的状态）
+            action: 对象，里面保存操作的信息
+                type: 操作的类型
+                其他需要传递的参数，也可以在action中设置
+
+            问题：
+                1. 如果state过于复杂，将会非常难以维护
+                    - 可以对state进行分组解决，创建多个reducer，然后将其合并成一个
+                2. state每次操作时，都需要对其进行复制，然后再去修改
+                3. case后边的常量维护起来会比较麻烦
+        */
+        switch (action.type) {
+            case 'ADD':
+                return state + 1
+            case 'SUB':
+                return state - 1
+            case 'ADD_N':
+                return state + action.n
+            default:
+                return state
+        }
+    }
+
+    /* 
+        3. 使用Redux.createStore()创建仓库
+            参数一：reducer函数，里面整合了所有操作state状态的操作
+            参数二：state状态的初始值
+    */
+    const store = Redux.createStore(reducer, 1)
+
+    /* 
+        4. 对store中的state进行订阅(当state变了就会执行回调函数)
+    */
+    store.subscribe(() => {
+        console.log(store.getState());
+        countSpan.innerText = store.getState()
+    })
+
+    let count = 1
+
+    subBtn.addEventListener('click', () => {
+        // 5. 通过dispatch派发state的操作指令
+        store.dispatch({
+            type: 'SUB'
+        })
+    })
+    addBtn.addEventListener('click', () => {
+        store.dispatch({
+            type: 'ADD',
+        })
+    })
+    addN.addEventListener('click', () => {
+        store.dispatch({
+            type: 'ADD_N',
+            n: 6,
+        })
+    })
+</script>
+
+</html>
